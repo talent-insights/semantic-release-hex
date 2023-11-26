@@ -12,12 +12,12 @@
 [![Discord](https://img.shields.io/discord/1158414767770308648?logo=discord)](https://discord.gg/cRB8XRFKzH)
 
 > **Warning**
-> Publishing to `hex` has not yet been implemented, so this package only bumps the version in `mix.exs` for now.
+> Publishing to `hex` has not yet been implemented, so this package only bumps the version in `mix.exs` and `README.md` for now.
 
 | Step               | Description                                                                                              |
 | ------------------ | -------------------------------------------------------------------------------------------------------- |
 | `verifyConditions` | Verify the presence of the `mix.exs` file and that the version is parsable.                              |
-| `prepare`          | Update the version in `mix.exs`.                                                                         |
+| `prepare`          | Update the version in `mix.exs` and `README.md`.                                                         |
 | _`publish`_        | _[to be implemented](https://github.com/talent-ideal/semantic-release-hex/discussions/14) (PRs welcome)_ |
 
 ## Installation
@@ -58,7 +58,9 @@ Add the plugin to the [**semantic-release** configuration file](https://github.c
 
 ## Supported version formats
 
-### Regular
+### `mix.exs`
+
+#### Regular
 
 ```elixir
   def project do
@@ -68,7 +70,7 @@ Add the plugin to the [**semantic-release** configuration file](https://github.c
   end
 ```
 
-### Module attribute
+#### Module attribute
 
 ```elixir
   @version "0.4.2"
@@ -79,6 +81,18 @@ Add the plugin to the [**semantic-release** configuration file](https://github.c
     ]
   end
 ```
+
+### `README.md`
+
+````markdown
+```elixir
+  def deps do
+    {:hello_world, "0.4.2"},
+    {:hello_world, "~> 0.4.2"},
+    {:hello_world, git: "https://github.com/hello_world/hello_world.git", tag: "v0.4.2"},
+  end
+```
+````
 
 ## Community
 
